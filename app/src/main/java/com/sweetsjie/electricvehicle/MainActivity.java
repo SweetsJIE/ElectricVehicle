@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -137,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
                         power = jsonObject.getString("power");
                         latitude = Double.parseDouble(jsonObject.getString("latitude"));
                         longitude = Double.parseDouble(jsonObject.getString("longitude"));
-                        Log.d("TAG", String.valueOf(latitude));
-                        Log.d("TAG", String.valueOf(longitude));
+//                        Log.d("TAG", String.valueOf(latitude));
+//                        Log.d("TAG", String.valueOf(longitude));
 
 
                         Message message = new Message();
@@ -162,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
                 case GET_INFORMATION:
                     speedShow.setText(speed);
                     powerShow.setText(power);
+                    aMap.clear();
+                    mapInit();
                     break;
                 default:
                     break;
